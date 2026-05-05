@@ -14,7 +14,7 @@ class User(Base):
     hashed_password=Column(String, nullable=False)
     created_at=Column(DateTime , default=datetime.utcnow)
 
-    notes= relationship("Note", back_populates="owner",cascade="all, delete_orphan")
+    notes= relationship("Note", back_populates="owner",cascade="all, delete-orphan")
 
 class Note(Base):
     __tablename__="notes"
@@ -26,4 +26,4 @@ class Note(Base):
     updated_at=Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     user_id= Column(Integer, ForeignKey("users.id"),nullable=False )
 
-    owner =relationship("User", back_poopulates ="notes")
+    owner =relationship("User", back_populates ="notes")

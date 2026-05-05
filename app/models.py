@@ -1,3 +1,5 @@
+# description of tables in the database
+
 from sqlalchemy import String, Column, Integer, Text, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -25,6 +27,3 @@ class Note(Base):
     user_id= Column(Integer, ForeignKey("users.id"),nullable=False )
 
     owner =relationship("User", back_poopulates ="notes")
-
-
-
